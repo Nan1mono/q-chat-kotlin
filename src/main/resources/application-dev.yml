@@ -1,0 +1,42 @@
+server:
+  port: 38547
+
+spring:
+
+  # 数据库配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.66.130:3306/q_chat_bot?serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+  # 配置中心
+  config:
+    activate:
+      on-profile: dev
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: is_deleted
+      logic-delete-value: 1
+
+
+chat:
+  telegram:
+     bot-name: nanimono_bot
+     bot-token: 7935175246:AAFDv_EyBrSuKgNXe2PBo5vIkPcx8gAyZ9A
+  baidu:
+    api-key: nQWZDyQG7vxY9f8qhG7BIjGp
+    secret-key: 19ZR9QM2XHikzzJ1xAt4lBIm7w3ZdhPf
+  napcat:
+    client:
+      group-url: http://192.168.66.130:3000/send_group_msg
+
+home-assistant:
+  socket-url: ws://192.168.66.130:8123/api/websocket
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkM2MzZWMwZmI3OWE0ZjI5YTQ5MWEzNDcwZDBjM2YxOCIsImlhdCI6MTc0MDM4MDU3MiwiZXhwIjoyMDU1NzQwNTcyfQ.1yRdbZK1PFCCSURerHo45MqIbmatQSFTWZZ3_i9EyXs
+
