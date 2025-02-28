@@ -1,13 +1,13 @@
 package com.project.template
 
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import com.project.template.common.log.annotation.Slf4j2
+import com.project.template.common.log.annotation.Slf4j2.Companion.log
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
+@Slf4j2
 @SpringBootApplication
 open class ApiApplication {
-    private val log: Logger = LoggerFactory.getLogger(ApiApplication::class.java)
 
     fun start(args: Array<String>) {
         SpringApplication.run(ApiApplication::class.java, *args)
