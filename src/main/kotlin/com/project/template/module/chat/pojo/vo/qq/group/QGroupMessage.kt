@@ -14,7 +14,7 @@ class QGroupMessage(
     var group_id: String? = null,
 
     // 消息体，集合形式
-    var message: ArrayList<QMessage> = arrayListOf()
+    var message: ArrayList<QMessage>? = arrayListOf()
 ) : QBaseMessage() {
     companion object {
         fun buildGroupMsg(message: String, type: String): QGroupMessage {
