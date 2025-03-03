@@ -30,6 +30,7 @@
         <google-guava.version>32.1.2-jre</google-guava.version>
         <codehaus-janino.version>3.1.11</codehaus-janino.version>
         <telegrambots.version>6.9.7.1</telegrambots.version>
+        <kotlin.version>2.1.10</kotlin.version>
     </properties>
 
     <dependencies>
@@ -183,19 +184,24 @@
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib</artifactId>
-            <version>2.1.10</version>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
-        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
-                <version>2.1.10</version>
+                <version>${kotlin.version}</version>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -212,6 +218,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <jvmTarget>1.8</jvmTarget>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
