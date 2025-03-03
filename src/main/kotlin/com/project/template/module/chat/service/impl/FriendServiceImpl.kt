@@ -16,5 +16,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 open class FriendServiceImpl : ServiceImpl<FriendMapper, Friend>(), FriendService {
+    override fun getFriendByName(name: String): List<Friend>  {
+        return this.lambdaQuery().eq(Friend::simpleSpelling, name)
+            .or().eq(Friend::fullName, name)
+            .or().eq(Friend::nickName1, name)
+            .or().eq(Friend::nickName2, name)
+            .or().eq(Friend::nickName3, name)
+            .list();
+    }
 
 }

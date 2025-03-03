@@ -2,11 +2,13 @@ package com.project.template.module.chat.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.google.common.collect.Lists
 import com.project.template.module.base.entity.BaseEntity;
+import org.apache.commons.collections4.CollectionUtils
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author lee
@@ -65,14 +67,37 @@ class Friend : BaseEntity() {
 
     override fun toString(): String {
         return "Friend{" +
-        "uid=" + uid +
-        ", uin=" + uin +
-        ", simpleSpelling=" + simpleSpelling +
-        ", fullName=" + fullName +
-        ", nickName1=" + nickName1 +
-        ", nickName2=" + nickName2 +
-        ", nickName3=" + nickName3 +
-        ", status=" + status +
-        "}"
+                "uid=" + uid +
+                ", uin=" + uin +
+                ", simpleSpelling=" + simpleSpelling +
+                ", fullName=" + fullName +
+                ", nickName1=" + nickName1 +
+                ", nickName2=" + nickName2 +
+                ", nickName3=" + nickName3 +
+                ", status=" + status +
+                "}"
+    }
+
+    companion object {
+        fun convert2Msg(friendList: List<Friend>): String {
+            if (CollectionUtils.isEmpty(friendList)) {
+                return "没有记录请先添加"
+            }
+            val list = Lists.newArrayList<String>()
+            for (friend in friendList) {
+                list.add(convert2Msg(friend))
+            }
+            return list.joinToString("\n")
+        }
+
+        fun convert2Msg(friend: Friend): String {
+            return """
+                姓名：${friend.fullName}，
+                拼音：${friend.simpleSpelling}
+                昵称1：${friend.nickName1}
+                昵称2：${friend.nickName2}
+                昵称3：${friend.nickName3}
+                """.trimIndent()
+        }
     }
 }

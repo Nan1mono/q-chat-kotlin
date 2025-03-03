@@ -11,4 +11,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author lee
  * @since 2025-02-27
  */
-interface FriendService : IService<Friend>
+interface FriendService : IService<Friend>{
+
+    fun getFriendByName(name:String): List<Friend>
+
+}
