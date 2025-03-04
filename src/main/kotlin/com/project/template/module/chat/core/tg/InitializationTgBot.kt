@@ -34,13 +34,12 @@ open class InitializationTgBot(
             DefaultBotOptions().apply {
                 proxyHost = "127.0.0.1"
                 proxyPort = 7890
-            }.also { options ->
+            }.run {
                 nanimonoBot = NanimonoBot(
-                    options = options, botToken = botToken, botName = botName,
+                    options = this, botToken = botToken, botName = botName,
                     baiduErnieService = baiduErnieService, homeAssistantUserService = homeAssistantUserService,
                     haSocketTemplate = haSocketTemplate
-                )
-                TelegramBotsApi(DefaultBotSession::class.java).registerBot(nanimonoBot)
+                ).also { TelegramBotsApi(DefaultBotSession::class.java).registerBot(nanimonoBot) }
             }
         } catch (e: TelegramApiException) {
             throw ChatCoreException(e)

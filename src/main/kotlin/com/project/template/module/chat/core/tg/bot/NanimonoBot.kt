@@ -42,9 +42,9 @@ class NanimonoBot(
                 SendMessage().apply {
                     this.text = text
                     this.chatId = chatId.toString()
-                }.also {
+                }.run {
                     try {
-                        execute(it)
+                        execute(this)
                     } catch (e: TelegramApiException) {
                         throw ChatCoreException(e)
                     }
