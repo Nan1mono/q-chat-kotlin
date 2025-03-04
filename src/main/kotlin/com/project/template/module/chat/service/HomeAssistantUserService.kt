@@ -1,4 +1,4 @@
-package com.project.template.module.chat.service;
+package com.project.template.module.chat.service
 
 import com.baomidou.mybatisplus.extension.service.IService
 import com.project.template.module.chat.entity.HomeAssistantUser

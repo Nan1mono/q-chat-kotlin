@@ -1,4 +1,4 @@
-package com.project.template.module.chat.service.impl;
+package com.project.template.module.chat.service.impl
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
 import com.project.template.module.chat.entity.Friend

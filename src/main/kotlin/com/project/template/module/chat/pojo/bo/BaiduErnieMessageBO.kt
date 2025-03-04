@@ -19,8 +19,8 @@ class BaiduErnieMessageBO(
     var messages:List<ErnieMessage>? = Lists.newArrayList()
 ) {
     class ErnieMessage(
-        var role: String? = null,
-        var content: String? = null
+        val role: String? = null,
+        val content: String? = null
     )
 
 }
