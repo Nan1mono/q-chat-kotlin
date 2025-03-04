@@ -1,5 +1,7 @@
 package com.project.template.module.chat.pojo.bo
 
+import com.google.common.collect.Lists
+
 class BaiduErnieMessageBO(
 
     var temperature: Double? = null,
@@ -12,7 +14,9 @@ class BaiduErnieMessageBO(
 
     var disable_search: Boolean? = null,
 
-    var enable_citation: Boolean? = null
+    var enable_citation: Boolean? = null,
+
+    var messages:List<ErnieMessage>? = Lists.newArrayList()
 ) {
     class ErnieMessage(
         var role: String? = null,

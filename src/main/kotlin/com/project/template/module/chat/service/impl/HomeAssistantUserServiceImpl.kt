@@ -1,10 +1,10 @@
 package com.project.template.module.chat.service.impl;
 
-import com.project.template.module.chat.entity.HomeAssistantUser;
-import com.project.template.module.chat.mapper.HomeAssistantUserMapper;
-import com.project.template.module.chat.service.HomeAssistantUserService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
+import com.project.template.module.chat.entity.HomeAssistantUser
+import com.project.template.module.chat.mapper.HomeAssistantUserMapper
+import com.project.template.module.chat.service.HomeAssistantUserService
+import org.springframework.stereotype.Service
 
 /**
  * <p>
@@ -16,5 +16,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 open class HomeAssistantUserServiceImpl : ServiceImpl<HomeAssistantUserMapper, HomeAssistantUser>(), HomeAssistantUserService {
+
+    override fun getByTelegramId(telegramId: Long): HomeAssistantUser? {
+        return this.ktQuery().eq(HomeAssistantUser::telegramId, telegramId).one()
+    }
+
+    override fun getByQid(qid: Long): HomeAssistantUser? {
+        return this.ktQuery().eq(HomeAssistantUser::qqId, qid).one()
+    }
+
 
 }

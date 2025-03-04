@@ -1,7 +1,7 @@
 package com.project.template.module.chat.service;
 
-import com.project.template.module.chat.entity.HomeAssistantUser;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService
+import com.project.template.module.chat.entity.HomeAssistantUser
 
 /**
  * <p>
@@ -11,4 +11,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author lee
  * @since 2025-02-27
  */
-interface HomeAssistantUserService : IService<HomeAssistantUser>
+interface HomeAssistantUserService : IService<HomeAssistantUser>{
+
+    fun getByTelegramId(telegramId:Long):HomeAssistantUser?
+
+    fun getByQid(qid:Long):HomeAssistantUser?
+
+}

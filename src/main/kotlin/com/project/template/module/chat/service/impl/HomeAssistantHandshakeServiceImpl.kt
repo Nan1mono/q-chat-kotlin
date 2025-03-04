@@ -1,10 +1,10 @@
 package com.project.template.module.chat.service.impl;
 
-import com.project.template.module.chat.entity.HomeAssistantHandshake;
-import com.project.template.module.chat.mapper.HomeAssistantHandshakeMapper;
-import com.project.template.module.chat.service.HomeAssistantHandshakeService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
+import com.project.template.module.chat.entity.HomeAssistantHandshake
+import com.project.template.module.chat.mapper.HomeAssistantHandshakeMapper
+import com.project.template.module.chat.service.HomeAssistantHandshakeService
+import org.springframework.stereotype.Service
 
 /**
  * <p>
@@ -16,5 +16,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 open class HomeAssistantHandshakeServiceImpl : ServiceImpl<HomeAssistantHandshakeMapper, HomeAssistantHandshake>(), HomeAssistantHandshakeService {
+
+    override fun getByPayloadId(payloadId: String): HomeAssistantHandshake {
+        return this.ktQuery().eq(HomeAssistantHandshake::payloadId, payloadId).one()
+    }
 
 }

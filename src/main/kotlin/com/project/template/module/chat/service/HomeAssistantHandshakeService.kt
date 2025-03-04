@@ -1,7 +1,7 @@
 package com.project.template.module.chat.service;
 
-import com.project.template.module.chat.entity.HomeAssistantHandshake;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService
+import com.project.template.module.chat.entity.HomeAssistantHandshake
 
 /**
  * <p>
@@ -11,4 +11,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author lee
  * @since 2025-02-27
  */
-interface HomeAssistantHandshakeService : IService<HomeAssistantHandshake>
+interface HomeAssistantHandshakeService : IService<HomeAssistantHandshake>{
+
+    fun getByPayloadId(payloadId:String):HomeAssistantHandshake?
+
+}
