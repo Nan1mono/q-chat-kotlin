@@ -9,15 +9,11 @@ import com.project.template.module.chat.service.HomeAssistantUserService
 import com.project.template.module.ha.sender.HaWebSocketSender
 import org.apache.commons.collections4.CollectionUtils
 import org.apache.commons.lang3.StringUtils
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
 @Slf4j2
 @Component
 open class HaSocketTemplate(
-    @Value("\${home-assistant.token}")
-    private val token: String,
-
     private val haWebSocketSender: HaWebSocketSender,
     private val homeAssistantUserService: HomeAssistantUserService
 ) {

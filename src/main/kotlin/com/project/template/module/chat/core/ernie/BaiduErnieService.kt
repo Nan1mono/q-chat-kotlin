@@ -45,7 +45,7 @@ open class BaiduErnieService(
                 String::class.java
             )
         )
-        return response.getString("result");
+        return response.getString("result")
 
     }
 
