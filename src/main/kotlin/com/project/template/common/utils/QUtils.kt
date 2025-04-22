@@ -24,7 +24,7 @@ sealed class QUtils {
         fun isGroupAt(jsonObject: JSONObject): Boolean {
             val str: String = try {
                 jsonObject.getString(RAW_MESSAGE)
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 ""
             }
             return str.startsWith(String.format(AT_MESSAGE, getQid(jsonObject)))
