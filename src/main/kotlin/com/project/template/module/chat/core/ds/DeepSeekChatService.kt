@@ -53,7 +53,7 @@ class DeepSeekChatService(
         }
         val httpHeaders = HttpHeaders()
         httpHeaders["Content-Type"] = "application/json"
-        httpHeaders["Authorization"] = key
+        httpHeaders["Authorization"] = getAccessToken()
         buildHistoryMessage(sendMessage, "user")
         val deepseekMessage = DeepSeekMessageBO(model = "deepseek-r1", messages = messageList)
         log.info("deepseekMessage: ${JSON.toJSONString(deepseekMessage)}")
@@ -78,7 +78,7 @@ class DeepSeekChatService(
     }
 
     override fun getAccessToken(): String {
-        TODO("Not yet implemented")
+        return key
     }
 
     private fun buildHistoryMessage(message: String, type: String) {
