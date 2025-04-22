@@ -21,7 +21,7 @@ sealed class QUtils {
             return jsonObject.getString(SELF_ID)
         }
 
-        fun isGroup(jsonObject: JSONObject): Boolean {
+        fun isGroupAt(jsonObject: JSONObject): Boolean {
             val str: String = try {
                 jsonObject.getString(RAW_MESSAGE)
             } catch (e: Exception) {

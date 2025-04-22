@@ -6,6 +6,7 @@ plugins {
     `java-library`
     `maven-publish`
     kotlin("jvm") version "2.1.10"
+    id("idea")
 }
 
 repositories {
@@ -48,6 +49,14 @@ group = "com.project.template"
 version = "1.0-SNAPSHOT"
 description = "q-chat-kotlin"
 java.sourceCompatibility = JavaVersion.VERSION_21
+
+idea {
+    module {
+        // enable gradle incremental compilation
+        isDownloadSources = false
+        isDownloadJavadoc = false
+    }
+}
 
 publishing {
     publications.create<MavenPublication>("maven") {
